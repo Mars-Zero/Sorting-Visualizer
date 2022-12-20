@@ -1,10 +1,23 @@
+/**
+ * The size of the array
+ */
 const n = 20;
+/**
+ * The array that needs to be sorted
+ */
 const array = [];
 
 init();
 
+/**
+ * The audio context
+ */
 let audioCtx=null;
 
+/**
+ * Plays a note for the user that is dependent on the height of the element
+ * @param {*the value of the element} freq 
+ */
 function playNote(freq)
 {
     if(audioCtx==null)
@@ -26,6 +39,9 @@ function playNote(freq)
     node.connect(audioCtx.destination);
 }
 
+/**
+ * The action behind Init button
+ */
 function init() {
     
     for (let i = 0; i < n; i++) {
@@ -34,6 +50,9 @@ function init() {
     showBars();
 }
 
+/**
+ * The action behind the Play button
+ */
 function play()
 {
     const copy=[...array];
@@ -42,6 +61,11 @@ function play()
     
 }
 
+/**
+ * This function goes recursively through a list of moves and displays them one by one
+ * @param {an array of moves that need to be animated} moves 
+ * @returns nothing
+ */
 function animatemoves(moves)
 {
     if(moves.length==0)
@@ -66,6 +90,11 @@ function animatemoves(moves)
     },50);
 }
 
+/**
+ * This is a bubble sort 🧋
+ * @param {*an array that needs to be sorted} array 
+ * @returns the moves that have been made in order to sort the array
+ */
 function bubbleSort(array) {
     const moves=[];
     do {
@@ -83,7 +112,10 @@ function bubbleSort(array) {
     return moves;
 }
 
-
+/**
+ * This method shows the bars on the screen
+ * @param {*the move that needs to be highlighted} move 
+ */
 function showBars(move) {
     container.innerHTML="";
     for (let i = 0; i < array.length; i++) {
