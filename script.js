@@ -1,3 +1,5 @@
+import sortArray from "./sorting_algotihms.js"
+
 /**
  * The size of the array
  */
@@ -7,7 +9,20 @@ const n = 20;
  */
 const array = [];
 
-init();
+
+setDefaultStat();
+/**
+ * This functions sets the default state of the webpage
+ */
+function setDefaultStat()
+{
+
+    init();
+    document.querySelector('button[name="init"]').addEventListener('click', init);
+    document.querySelector('button[name="play"]').addEventListener('click', play);
+}
+
+
 
 /**
  * The audio context
@@ -56,7 +71,7 @@ function init() {
 function play()
 {
     const copy=[...array];
-    const moves=bubbleSort(copy);
+    const moves=sortArray(copy,"insertionsort");
     animatemoves(moves);
     
 }
@@ -90,27 +105,7 @@ function animatemoves(moves)
     },50);
 }
 
-/**
- * This is a bubble sort 🧋
- * @param {*an array that needs to be sorted} array 
- * @returns the moves that have been made in order to sort the array
- */
-function bubbleSort(array) {
-    const moves=[];
-    do {
-        var swapped = false;
-        for (let i = 1; i < array.length; i++) {
-            //moves.push({indices: [i-1,i],type:"comp"});
 
-            if (array[i - 1] > array[i]) {
-                swapped = true;
-                moves.push({indices: [i-1,i],type:"swap"});
-                [array[i - 1], array[i]] = [array[i], array[i - 1]];
-            }
-        }
-    } while (swapped)
-    return moves;
-}
 
 /**
  * This method shows the bars on the screen
