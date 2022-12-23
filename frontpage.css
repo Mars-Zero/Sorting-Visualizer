@@ -1,0 +1,36 @@
+
+body {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+}
+
+
+.blob-motion{
+    position:absolute;
+    transform: translateY(-20%);
+}
+
+.spacerUp {
+    aspect-ratio: 960/300;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-size: cover;
+}
+.spacerDown {
+    aspect-ratio: 960/300;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: cover;
+}
+
+.layerUp {
+    background-image: url('../resources/up_wave.svg');
+}
+.layerDown {
+    background-image: url('../resources/down_wave.svg');
+}
+

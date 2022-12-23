@@ -1,4 +1,5 @@
 import sortArray from "./sorting_algotihms.js"
+import playNote from "./audio_processing.js"
 
 /**
  * The size of the array
@@ -8,6 +9,11 @@ const n = 20;
  * The array that needs to be sorted
  */
 const array = [];
+
+/**
+ * A value that resets the visual representation of the sorting
+ */
+var isStarted=false;
 
 
 setDefaultStat();
@@ -24,41 +30,13 @@ function setDefaultStat()
 
 
 
-/**
- * The audio context
- */
-let audioCtx=null;
 
-/**
- * Plays a note for the user that is dependent on the height of the element
- * @param {*the value of the element} freq 
- */
-function playNote(freq)
-{
-    if(audioCtx==null)
-    {
-        audioCtx=new (AudioContext
-             || webkitAudioContext 
-             || window.webkitAudioContext)();
-    }
-    const dur=0.1;
-    const osc=audioCtx.createOscillator();
-    osc.frequency.value=freq;
-    osc.start();
-    osc.stop(audioCtx.currentTime+dur);
-
-    const node=audioCtx.createGain();
-    node.gain.value=0.1;
-    node.gain.linearRampToValueAtTime(0,audioCtx.currentTime+dur);
-    osc.connect(node);
-    node.connect(audioCtx.destination);
-}
 
 /**
  * The action behind Init button
  */
 function init() {
-    
+    isStarted=false;
     for (let i = 0; i < n; i++) {
         array[i] = Math.random();
     }
@@ -70,8 +48,9 @@ function init() {
  */
 function play()
 {
+    isStarted=true;
     const copy=[...array];
-    const moves=sortArray(copy,"insertionsort");
+    const moves=sortArray(copy,"selectionsort");
     animatemoves(moves);
     
 }
@@ -83,7 +62,7 @@ function play()
  */
 function animatemoves(moves)
 {
-    if(moves.length==0)
+    if(moves.length==0 || !isStarted)
     {
         showBars();
         return;
