@@ -3,9 +3,19 @@ body {
     display: flex;
     align-items: center;
     flex-direction: column;
-
+    margin: 0;
+    font-family:'Promt',sans-serif;
+    color:white;
+    background-color: #001220;
 }
-
+section{
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    min-height: 400px;
+    padding: 100px 20vw;
+}
 
 .blob-motion{
     position:absolute;
@@ -34,3 +44,22 @@ body {
     background-image: url('../resources/down_wave.svg');
 }
 
+.custom-shape-divider-top-1671828818 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+}
+
+.custom-shape-divider-top-1671828818 svg {
+    position: relative;
+    display: block;
+    width: calc(110% + 1.3px);
+    height: 127px;
+}
+
+.custom-shape-divider-top-1671828818 .shape-fill {
+    fill: #001220;
+}
