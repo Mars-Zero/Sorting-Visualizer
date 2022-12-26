@@ -25,7 +25,9 @@ function setDefaultStat()
 
     init();
     document.querySelector('button[name="init"]').addEventListener('click', init);
-    document.querySelector('button[name="play"]').addEventListener('click', play);
+    document.querySelector('button[name="playBubbleSort"]').addEventListener('click', playBubbleSort);
+    document.querySelector('button[name="playSelectionSort"]').addEventListener('click', playSelectionSort);
+    document.querySelector('button[name="playInsertionSort"]').addEventListener('click', playInsertionSort);
 }
 
 
@@ -51,6 +53,40 @@ function play()
     isStarted=true;
     const copy=[...array];
     const moves=sortArray(copy,"selectionsort");
+    animatemoves(moves);
+    
+}
+
+/**
+ * The action behind the BubbleSort button
+ */
+function playBubbleSort()
+{
+    isStarted=true;
+    const copy=[...array];
+    const moves=sortArray(copy,"bubblesort");
+    animatemoves(moves);
+    
+}
+/**
+ * The action behind the SelectionSort button
+ */
+function playSelectionSort()
+{
+    isStarted=true;
+    const copy=[...array];
+    const moves=sortArray(copy,"selectionsort");
+    animatemoves(moves);
+    
+}
+/**
+ * The action behind the InsertionSort button
+ */
+function playInsertionSort()
+{
+    isStarted=true;
+    const copy=[...array];
+    const moves=sortArray(copy,"insertionsort");
     animatemoves(moves);
     
 }

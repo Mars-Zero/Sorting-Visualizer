@@ -1,8 +1,8 @@
 
 body {
     display: flex;
-    align-items: center;
     flex-direction: column;
+    align-items: center;
     margin: 0;
     font-family:'Promt',sans-serif;
     color:white;
@@ -10,12 +10,11 @@ body {
 }
 section{
     position: relative;
-    display: flex;
-    align-items: center;
     flex-direction: column;
     min-height: 400px;
     padding: 100px 20vw;
 }
+
 
 .blob-motion{
     position:absolute;
@@ -44,22 +43,15 @@ section{
     background-image: url('../resources/down_wave.svg');
 }
 
-.custom-shape-divider-top-1671828818 {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    overflow: hidden;
-    line-height: 0;
+.github_icon{
+    align-items: start;
+    size:100px 20vw;
+    color: rgb(255, 255, 255);
+    transition: color 0.2s;
 }
-
-.custom-shape-divider-top-1671828818 svg {
-    position: relative;
-    display: block;
-    width: calc(110% + 1.3px);
-    height: 127px;
+.github_icon:hover{
+    color: rgba(216, 216, 216, 0.2);
 }
-
-.custom-shape-divider-top-1671828818 .shape-fill {
-    fill: #001220;
+a{
+    color:cyan;
 }
