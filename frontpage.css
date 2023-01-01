@@ -1,14 +1,46 @@
+:root {
+    font-size: 16 px;
+    font-family: 'Promt', sans-serif;
+    --text-primary: #b6b6b6;
+    --text-secondary: #ececec;
+    --bg-primary: #23232e;
+    --bg-secondary: #141418;
+    --transition-speed: 600ms;
+}
+
 
 body {
+
+    font-family: 'Promt', sans-serif;
+    color: white;
+    background-color: #001220;
+
+    margin: 0;
+    padding: 0;
+}
+
+body::-webkit-scrollbar {
+    width: 0.25rem;
+}
+
+body::-webkit-scrollbar-track {
+    background: #ececec;
+}
+
+body::-webkit-scrollbar-thumb {
+    background: #6649b8;
+}
+
+aliniere {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 0;
-    font-family:'Promt',sans-serif;
-    color:white;
-    background-color: #001220;
 }
-section{
+
+
+
+
+section {
     position: relative;
     flex-direction: column;
     min-height: 400px;
@@ -16,8 +48,8 @@ section{
 }
 
 
-.blob-motion{
-    position:absolute;
+.blob-motion {
+    position: absolute;
     transform: translateY(-20%);
 }
 
@@ -28,6 +60,7 @@ section{
     background-position: bottom;
     background-size: cover;
 }
+
 .spacerDown {
     aspect-ratio: 960/300;
     width: 100%;
@@ -39,19 +72,19 @@ section{
 .layerUp {
     background-image: url('../resources/up_wave.svg');
 }
+
 .layerDown {
     background-image: url('../resources/down_wave.svg');
 }
 
-.github_icon{
+.github_icon {
     align-items: start;
-    size:100px 20vw;
+    size: 100px 20vw;
     color: rgb(255, 255, 255);
     transition: color 0.2s;
 }
-.github_icon:hover{
+
+.github_icon:hover {
     color: rgba(216, 216, 216, 0.2);
 }
-a{
-    color:cyan;
-}
+
