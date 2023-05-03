@@ -31,3 +31,11 @@ main {
     background-color: black;
     margin: 1px;
 }
+
+/*#inputElements:focus{
+   background-color: white;
+    background-image: url('searchicon.png');
+    background-position: 10px 10px;
+    background-repeat: no-repeat;
+    padding-left: 40px;
+}*/

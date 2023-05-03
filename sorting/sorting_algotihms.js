@@ -19,6 +19,9 @@ export default function sortArray(array,type)
         case "mergesort":{
             return mergeSort(array);
         }
+        case "quicksort":{
+            return quickSort(array);
+        }
         
     }
 }
@@ -158,5 +161,53 @@ function mergeRec(array,st,dr)
             array[st+i]=interclas[i];
         }
 
+    }
+}
+
+/**
+ * This is a quick sort 🥇
+ * TODO somehow find a way to display the moves
+ * TODO check if the sorting is correct
+ * @param {*an array that needs to be sorted} array 
+ * @returns the moves that have been made in order to sort the array
+ */
+function quickSort(array)
+{
+     
+    console.log(array);
+    const moves=mergeRec(array,0,array.length-1);
+    console.log(array);
+    return moves;
+}
+
+function quickSortRec(array,st,dr)
+{
+    let moves=[];
+    if(st<dr)
+    {
+        let mij=Math.floor((st+dr)/2);
+
+        let inex=Math.floor(Math.random%(dr-st));
+        let pivot=array[st+inex];
+        array[st + inex] = array[mij];
+        array[mij] = pivot;
+
+        let aux;
+        let i=st,j=dr,schimb=0;
+        while (i < j)
+        {
+            moves.push({indices: [j,i],type:"compar"});
+            if (v[i] > v[j])
+            {
+                moves.push({indices: [j,i],type:"swap"});
+                [array[j], array[i]] = [array[i], array[j]];
+                schimb = 1 - schimb;
+            }
+            i += schimb;
+            j = j - 1 + schimb;
+        }
+        moves+=quickSortRec(array,st,i-1);
+        moves+=quickSortRec(array,j+1,dr);
+        return moves;
     }
 }
