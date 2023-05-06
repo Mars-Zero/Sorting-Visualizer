@@ -94,7 +94,7 @@ function insertionSort(array) {
                 break;
             }
             else{
-                moves.push({indices: [j,i],type:"compar"});
+                //moves.push({indices: [j,i],type:"compar"});
             }
         }
         for(let j=i; j>poz; j--)

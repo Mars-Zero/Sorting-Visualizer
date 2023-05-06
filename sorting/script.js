@@ -4,7 +4,7 @@ import playNote from "./audio_processing.js"
 /**
  * The size of the array
  */
-const n = 20;
+const n = 50;
 /**
  * The array that needs to be sorted
  */
