@@ -13,15 +13,14 @@ const array = [];
 /**
  * A value that resets the visual representation of the sorting
  */
-var isStarted=false;
+var isStarted = false;
 
 
 setDefaultStat();
 /**
  * This functions sets the default state of the webpage
  */
-function setDefaultStat()
-{
+function setDefaultStat() {
 
     init();
     document.querySelector('button[name="init"]').addEventListener('click', init);
@@ -38,7 +37,7 @@ function setDefaultStat()
  * The action behind Init button
  */
 function init() {
-    isStarted=false;
+    isStarted = false;
     for (let i = 0; i < n; i++) {
         array[i] = Math.random();
     }
@@ -48,47 +47,55 @@ function init() {
 /**
  * The action behind the Play button
  */
-function play()
-{
-    isStarted=true;
-    const copy=[...array];
-    const moves=sortArray(copy,"selectionsort");
+function play() {
+    isStarted = true;
+    const copy = [...array];
+    const moves = sortArray(copy, "selectionsort");
     animatemoves(moves);
-    
+
 }
 
 /**
  * The action behind the BubbleSort button
  */
-function playBubbleSort()
-{
-    isStarted=true;
-    const copy=[...array];
-    const moves=sortArray(copy,"bubblesort");
+function playBubbleSort() {
+    if (isStarted) {
+        //another sorting is in proccess
+        return;
+    }
+    isStarted = true;
+    const copy = [...array];
+    const moves = sortArray(copy, "bubblesort");
     animatemoves(moves);
-    
+
 }
 /**
  * The action behind the SelectionSort button
  */
-function playSelectionSort()
-{
-    isStarted=true;
-    const copy=[...array];
-    const moves=sortArray(copy,"selectionsort");
+function playSelectionSort() {
+    if (isStarted) {
+        //another sorting is in proccess
+        return;
+    }
+    isStarted = true;
+    const copy = [...array];
+    const moves = sortArray(copy, "selectionsort");
     animatemoves(moves);
-    
+
 }
 /**
  * The action behind the InsertionSort button
  */
-function playInsertionSort()
-{
-    isStarted=true;
-    const copy=[...array];
-    const moves=sortArray(copy,"insertionsort");
+function playInsertionSort() {
+    if (isStarted) {
+        //another sorting is in proccess
+        return;
+    }
+    isStarted = true;
+    const copy = [...array];
+    const moves = sortArray(copy, "insertionsort");
     animatemoves(moves);
-    
+
 }
 
 /**
@@ -96,28 +103,26 @@ function playInsertionSort()
  * @param {an array of moves that need to be animated} moves 
  * @returns nothing
  */
-function animatemoves(moves)
-{
-    if(moves.length==0 || !isStarted)
-    {
+function animatemoves(moves) {
+    if (moves.length == 0 || !isStarted) {
         showBars();
+        isStarted = false;
         return;
     }
 
-    const move=moves.shift();
-    const [i,j]=move.indices;
-    if(move.type=="swap")
-    {
+    const move = moves.shift();
+    const [i, j] = move.indices;
+    if (move.type == "swap") {
 
-        [array[i],array[j]]=[array[j],array[i]];
+        [array[i], array[j]] = [array[j], array[i]];
     }
 
-    playNote(200+array[i]*500);
-    playNote(200+array[j]*500);
+    playNote(200 + array[i] * 500);
+    playNote(200 + array[j] * 500);
     showBars(move);
-    setTimeout(function(){
+    setTimeout(function () {
         animatemoves(moves);
-    },50);
+    }, 50);
 }
 
 
@@ -127,14 +132,14 @@ function animatemoves(moves)
  * @param {*the move that needs to be highlighted} move 
  */
 function showBars(move) {
-    container.innerHTML="";
+    container.innerHTML = "";
     for (let i = 0; i < array.length; i++) {
         const bar = document.createElement("div");
         bar.style.height = array[i] * 100 + "%";
         bar.classList.add("bar");
 
-        if(move!=null && move.indices.includes(i)){
-            bar.style.backgroundColor=move.type=="swap"?"red":"blue";
+        if (move != null && move.indices.includes(i)) {
+            bar.style.backgroundColor = move.type == "swap" ? "red" : "blue";
         }
         container.appendChild(bar);
     }
