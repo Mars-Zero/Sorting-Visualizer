@@ -72,11 +72,11 @@ section {
 }
 
 .layerUp {
-    background-image: url('../resources/up_wave.svg');
+    background-image: url('resources/up_wave.svg');
 }
 
 .layerDown {
-    background-image: url('../resources/down_wave.svg');
+    background-image: url('resources/down_wave.svg');
 }
 
 .github_icon {
