@@ -36,4 +36,4 @@ Start the server
   npm run start
 ```
 
-Alternatively, open with Visual Studio Code and use the LiveServer extension
+Alternatively, open with Visual Studio Code and use the LiveServer extension or just go to the my [Github Page](https://mars-zero.github.io/Sorting-Visualizer/frontpage.html)
